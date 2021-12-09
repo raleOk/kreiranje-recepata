@@ -1,25 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Registration from "./components/Registration/Registration";
+import Profile from "./components/Profile/Profile";
 
-function App() {
+const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userData, setUserData] = useState({});
+
+  const isLoggedInHandler = () => {
+    setIsLoggedIn(true);
+  };
+  const isLoggedOutHandler = () => {
+    setIsLoggedIn(false);
+  };
+
+  const setUserDataHandler = obj => {
+    setUserData(obj);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {!isLoggedIn && (
+        <Registration login={isLoggedInHandler} data={setUserDataHandler} />
+      )}
+      {isLoggedIn && (
+        <Profile logout={isLoggedOutHandler} userData={userData} />
+      )}
     </div>
   );
-}
+};
 
 export default App;
