@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const Registration = props => {
+const Register = props => {
   const [userInputs, setUserInputs] = useState({});
 
   const userInputsHandler = event => {
@@ -9,16 +9,14 @@ const Registration = props => {
     });
   };
 
-  const onSubmitHandler = event => {
-    event.preventDefault();
+  const onSubmit = () => {
     console.log(userInputs);
-    props.data(userInputs);
-    props.login();
+    props.logIn();
   };
 
   return (
     <div>
-      <form onSubmit={onSubmitHandler}>
+      <form>
         <label htmlFor="name">Ime</label>
         <input
           id="name"
@@ -54,11 +52,12 @@ const Registration = props => {
           name="password"
           required
         />
-
-        <button type="submit">Napravi profil</button>
       </form>
+      <button type="button" onClick={onSubmit}>
+        Registruj se!
+      </button>
     </div>
   );
 };
 
-export default Registration;
+export default Register;
