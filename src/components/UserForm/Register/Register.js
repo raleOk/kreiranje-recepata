@@ -10,8 +10,28 @@ const Register = props => {
   };
 
   const onSubmit = () => {
-    console.log(userInputs);
+    const url = "http://localhost:8000/users";
+    const fetchParams = {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(userInputs),
+    };
+
+    fetch(url, fetchParams)
+      .then(data => {
+        return data.json();
+      })
+      .then(res => {
+        console.log(res);
+      })
+      .catch(err => {
+        console.log(err);
+      });
     props.logIn();
+    props.passData(userInputs);
   };
 
   return (

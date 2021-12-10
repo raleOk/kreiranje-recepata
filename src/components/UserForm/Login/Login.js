@@ -17,12 +17,22 @@ const Login = props => {
       })
       .then(data => {
         setJsonData(data);
+      })
+      .catch(err => {
+        console.log(err.message);
       });
   }, []);
 
   const onSubmit = () => {
-    console.log(userData);
-    console.log(jsonData);
+    const result = jsonData.find(u => {
+      return u.password === userData.password;
+    });
+    if (result === undefined) {
+      alert("User not found!");
+    } else {
+      props.logIn();
+      props.passData(result);
+    }
   };
 
   return (

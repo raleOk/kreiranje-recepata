@@ -11,17 +11,20 @@ const UserForm = props => {
     });
   };
 
+  const passData = obj => {
+    props.setData(obj);
+  };
   return (
     <div>
       {toggleForm ? (
-        <Login toggle={toggle} logIn={props.logIn} />
+        <Register toggle={toggle} logIn={props.logIn} passData={passData} />
       ) : (
-        <Register toggle={toggle} logIn={props.logIn} />
+        <Login toggle={toggle} logIn={props.logIn} passData={passData} />
       )}
       <button type="button" onClick={toggle}>
         {toggleForm
-          ? "Napravi nov nalog!"
-          : "Uloguj se sa već postojećim nalogom!"}
+          ? "Već imaš nalog? Uloguj se"
+          : "Nisi registrovan? Napravi nov nalog"}
       </button>
     </div>
   );
