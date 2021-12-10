@@ -1,0 +1,28 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "firstName": "John",
+            "lastName": "Doe",
+            "email": "john.doe@gmail.com",
+            "password": "qwerty1234",
+            "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjA2MzkxMjc3fQ.Gm4izs_9tT2raLF_yRHYqHUY9Ea_JCtXHjm3a7jzzZQ"
+        },
+        {
+            "id": 2,
+            "firstName": "Mark",
+            "lastName": "Johnson",
+            "email": "mark.johnson@gmail.com",
+            "password": "qwerty123456",
+            "token": "49d2c418-29e8-4c59-a9a4-90981e0e03c349d2c418-29e8-4c59-a9a4-90981e0e03c349d2c418-29e8-4c59-a9a4-90981e0e03c349d2c418"
+        },
+        {
+            "id": 3,
+            "firstName": "Paul",
+            "lastName": "Smith",
+            "email": "paul.smith@gmail.com",
+            "password": "qwerty123478",
+            "token": "102d7f59-9254-47ca-8fd1-c13639f18121102d7f59-9254-47ca-8fd1-c13639f18121102d7f59-9254-47ca-8fd1-c13639f18121102d7f59"
+        }
+    ]
+}
