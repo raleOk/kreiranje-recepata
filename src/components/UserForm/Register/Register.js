@@ -1,7 +1,11 @@
 import React, { useState } from "react";
+import fetchConfig from "../../../fetchConfig/fetchConfig";
+import useFetch from "../../../hooks/useFetch";
 
 const Register = props => {
   const [userInputs, setUserInputs] = useState({});
+
+  const { sendRequest } = useFetch(fetchConfig, props.passData);
 
   const userInputsHandler = event => {
     setUserInputs(prevState => {
@@ -10,30 +14,23 @@ const Register = props => {
   };
 
   const onSubmit = () => {
-    const url = "http://localhost:8000/users";
-    const fetchParams = {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userInputs),
-    };
-
-    fetch(url, fetchParams)
-      .then(data => {
-        return data.json();
-      })
-      .then(res => {
-        console.log(res);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    for (let input in userInputs) {
+      if (userInputs[input] === "") {
+        alert("Fill out all the form inputs, please.");
+        return;
+      }
+    }
+    if (
+      userInputs.firstName.trim().length <= 2 ||
+      userInputs.password.trim().length <= 6
+    ) {
+      alert("First Name/Password too short!");
+      return;
+    }
+    fetchConfig.body = userInputs;
+    sendRequest();
     props.logIn();
-    props.passData(userInputs);
   };
-
   return (
     <div>
       <form>
