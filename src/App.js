@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import UserForm from "./components/UserForm/UserForm";
-import Profile from "./components/Profile/Profile";
+import MainScreen from "./components/MainScreen/MainScreen";
+import "./App.css";
 
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -22,7 +23,7 @@ const App = () => {
       {!isLoggedIn ? (
         <UserForm logIn={onLogIn} setData={setUserDataHandler} />
       ) : (
-        <Profile logout={onLogOut} userData={userData} />
+        <MainScreen logout={onLogOut} userData={userData} />
       )}
     </div>
   );
