@@ -1,5 +1,7 @@
-const useFetch = (fetchConfig, applyData) => {
-  const sendRequest = async () => {
+import { useCallback } from "react";
+
+const useFetch = () => {
+  const sendRequest = useCallback(async (fetchConfig, applyData) => {
     try {
       const response = await fetch(fetchConfig.url, {
         method: fetchConfig.method ? fetchConfig.method : "GET",
@@ -17,7 +19,7 @@ const useFetch = (fetchConfig, applyData) => {
     } catch (err) {
       console.log(err);
     }
-  };
+  }, []);
   return {
     sendRequest,
   };
