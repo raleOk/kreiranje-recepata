@@ -5,7 +5,7 @@ import useFetch from "../../../hooks/useFetch";
 const Register = props => {
   const [userInputs, setUserInputs] = useState({});
 
-  const { sendRequest } = useFetch(fetchConfig, props.passData);
+  const { sendRequest } = useFetch();
 
   const userInputsHandler = event => {
     setUserInputs(prevState => {
@@ -28,7 +28,7 @@ const Register = props => {
       return;
     }
     fetchConfig.body = userInputs;
-    sendRequest();
+    sendRequest(fetchConfig, props.passData);
     props.logIn();
   };
   return (

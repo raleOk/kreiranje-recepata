@@ -1,27 +1,26 @@
 import React, { useState, useEffect } from "react";
+import fetchConfig from "../../../fetchConfig/fetchConfig";
+import useFetch from "../../../hooks/useFetch";
 
 const Login = props => {
   const [userData, setUserData] = useState({});
   const [jsonData, setJsonData] = useState([]);
 
-  const setUserDataHandler = event => {
+  const { sendRequest } = useFetch();
+
+  const userDataHandler = event => {
     setUserData(prevState => {
       return { ...prevState, [event.target.name]: event.target.value };
     });
   };
 
   useEffect(() => {
-    fetch("http://localhost:8000/users")
-      .then(res => {
-        return res.json();
-      })
-      .then(data => {
-        setJsonData(data);
-      })
-      .catch(err => {
-        console.log(err.message);
-      });
-  }, []);
+    const jsonDataHandler = userObj => {
+      setJsonData(userObj);
+    };
+
+    sendRequest({ url: fetchConfig.url }, jsonDataHandler);
+  }, [sendRequest]);
 
   const onSubmit = () => {
     const result = jsonData.find(u => {
@@ -29,10 +28,14 @@ const Login = props => {
     });
     if (result === undefined) {
       alert("User not found!");
-    } else {
-      props.logIn();
-      props.passData(result);
+      return;
     }
+    if (result.email !== userData.email) {
+      alert("Incorrect email.");
+      return;
+    }
+    props.logIn();
+    props.passData(result);
   };
 
   return (
@@ -43,7 +46,7 @@ const Login = props => {
           type="email"
           id="mail"
           name="email"
-          onChange={setUserDataHandler}
+          onChange={userDataHandler}
           required
         />
         <label htmlFor="pw">Password</label>
@@ -51,7 +54,7 @@ const Login = props => {
           type="password"
           id="pw"
           name="password"
-          onChange={setUserDataHandler}
+          onChange={userDataHandler}
           required
         />
       </form>
