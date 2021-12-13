@@ -1,9 +1,12 @@
 import React, { useState } from "react";
 import Register from "./Register/Register";
 import Login from "./Login/Login";
+import "./UserForm.css";
 
 const UserForm = props => {
   const [toggleForm, setToggleForm] = useState(true);
+
+  const { logIn } = props;
 
   const toggle = () => {
     setToggleForm(prevState => {
@@ -17,14 +20,14 @@ const UserForm = props => {
   return (
     <div>
       {toggleForm ? (
-        <Register toggle={toggle} logIn={props.logIn} passData={passData} />
+        <Login toggle={toggle} logIn={logIn} passData={passData} />
       ) : (
-        <Login toggle={toggle} logIn={props.logIn} passData={passData} />
+        <Register toggle={toggle} logIn={logIn} passData={passData} />
       )}
       <button type="button" onClick={toggle}>
         {toggleForm
-          ? "Već imaš nalog? Uloguj se"
-          : "Nisi registrovan? Napravi nov nalog"}
+          ? "Nisi registrovan? Napravi nov nalog"
+          : "Već imaš nalog? Uloguj se"}
       </button>
     </div>
   );

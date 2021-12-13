@@ -1,0 +1,23 @@
+.nav-bar {
+  overflow: hidden;
+  background-color: #5e856d;
+}
+
+.nav-bar h1 {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.nav-bar h1:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.nav-bar h1.active {
+  background-color: #04aa6d;
+  color: white;
+}
