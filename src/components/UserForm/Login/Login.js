@@ -22,20 +22,27 @@ const Login = props => {
     sendRequest({ url: fetchConfig.url }, jsonDataHandler);
   }, [sendRequest]);
 
+  const foundUser = jsonData.find(u => {
+    return u.password === userData.password;
+  });
+
   const onSubmit = () => {
-    const result = jsonData.find(u => {
-      return u.password === userData.password;
-    });
-    if (result === undefined) {
+    for (let input in userData) {
+      if (userData[input] === "") {
+        alert("Fill out all the form inputs, please.");
+        return;
+      }
+    }
+    if (foundUser === undefined) {
       alert("User not found!");
       return;
     }
-    if (result.email !== userData.email) {
+    if (foundUser.email !== userData.email) {
       alert("Incorrect email.");
       return;
     }
     props.logIn();
-    props.passData(result);
+    props.passData(foundUser);
   };
 
   return (
