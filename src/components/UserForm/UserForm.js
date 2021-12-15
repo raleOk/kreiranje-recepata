@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Register from "./Register/Register";
 import Login from "./Login/Login";
+import "./UserForm.css";
 
 const UserForm = props => {
   const [toggleForm, setToggleForm] = useState(true);
@@ -23,7 +24,7 @@ const UserForm = props => {
       ) : (
         <Register toggle={toggle} logIn={logIn} passData={passData} />
       )}
-      <button type="button" onClick={toggle}>
+      <button type="button" onClick={toggle} className="userFormButton">
         {toggleForm
           ? "Nisi registrovan? Napravi nov nalog"
           : "Već imaš nalog? Uloguj se"}

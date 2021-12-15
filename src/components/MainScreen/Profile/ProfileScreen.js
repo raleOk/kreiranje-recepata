@@ -1,18 +1,21 @@
 import React from "react";
+import "./ProfileScreen.css";
 
 const ProfileScreen = props => {
   const { userData, toggle, logout } = props;
 
   return (
     <div>
-      <h3>Username: {userData.firstName}</h3>
-      <h3>E-mail: {userData.email}</h3>
-      <button type="button" onClick={toggle}>
-        Promeni lozinku?
-      </button>
-      <button type="button" onClick={logout}>
-        Odjavi se.
-      </button>
+      <div className="profileScreen">
+        <div className="profileInfo">Username: {userData.firstName}</div>
+        <div className="profileInfo">E-mail: {userData.email}</div>
+        <button type="button" onClick={toggle} className="profileButton">
+          Promeni lozinku?
+        </button>
+        <button type="button" onClick={logout} className="profileButton">
+          Odjavi se.
+        </button>
+      </div>
     </div>
   );
 };

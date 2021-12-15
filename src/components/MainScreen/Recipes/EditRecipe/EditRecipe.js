@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import "./EditRecipe.css";
 
 const EditRecipe = props => {
   const [formInputs, setFormInputs] = useState({});
@@ -74,61 +75,102 @@ const EditRecipe = props => {
   return (
     <div>
       {formType === "new" ? (
-        <h3>Dodaj nov recept!</h3>
+        <div className="editTitle">Dodaj nov recept!</div>
       ) : (
-        <h3>Šta želiš da promeniš?</h3>
+        <div className="editTitle">Šta želiš da promeniš?</div>
       )}
-      <form>
-        <label htmlFor="name">Naziv recepta:</label>
+      <form className="editForm">
+        <label htmlFor="name" className="editLabel">
+          Naziv recepta:
+        </label>
         <input
           type="text"
           id="name"
           name="title"
           onChange={formInputsHandler}
+          className="editInput"
         />
-        <label htmlFor="desc">Opis:</label>
+        <label htmlFor="desc" className="editLabel">
+          Opis:
+        </label>
         <textarea
           type="text"
           id="desc"
           name="description"
           onChange={formInputsHandler}
+          className="editInput"
         ></textarea>
-        <label htmlFor="pic">Dodaj sliku:</label>
+        <label htmlFor="pic" className="editLabel">
+          Dodaj sliku:
+        </label>
         <input
           type="file"
           id="pic"
           name="picture"
           onChange={formInputsHandler}
+          className="editInput"
         />
-        <label htmlFor="step">Koraci:</label>
+        <label htmlFor="step" className="editLabel">
+          Koraci:
+        </label>
         <textarea
           type="text"
           id="step"
           name="description"
           ref={step}
         ></textarea>
-        <button type="button" onClick={onSubmitSteps}>
+        <button type="button" onClick={onSubmitSteps} className="editButton">
           Dodaj korak!
         </button>
-        <h3>Sastojci:</h3>
-        <label htmlFor="name">Naziv:</label>
-        <input type="text" id="name" name="name" ref={ingredientName} />
-        <label htmlFor="amount">Količina:</label>
-        <input type="number" id="amount" name="amount" ref={ingredientAmount} />
-        <label htmlFor="unit">Jedinica za meru:</label>
-        <input type="text" id="unit" name="unit" ref={ingredientUnit} />
+        <div>Sastojci:</div>
+        <label htmlFor="name" className="editLabel">
+          Naziv:
+        </label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          ref={ingredientName}
+          className="editInput"
+        />
+        <label htmlFor="amount" className="editLabel">
+          Količina:
+        </label>
+        <input
+          type="number"
+          id="amount"
+          name="amount"
+          ref={ingredientAmount}
+          className="editInput"
+        />
+        <label htmlFor="unit" className="editLabel">
+          Jedinica za meru:
+        </label>
+        <input
+          type="text"
+          id="unit"
+          name="unit"
+          ref={ingredientUnit}
+          className="editInput"
+        />
         <button type="button" onClick={onSubmitIngredients}>
           Dodaj sastojak!
         </button>
       </form>
       {formType === "new" ? (
-        <button type="button" onClick={onSubmitNewRecipe}>
+        <button
+          type="button"
+          onClick={onSubmitNewRecipe}
+          className="editButton2"
+        >
           Dodaj recept!
         </button>
       ) : (
-        <button type="button">Izmeni recept!</button>
+        <button type="button" className="editButton2">
+          Izmeni recept!
+        </button>
       )}
-      <button type="button" onClick={onCancel}>
+      <button type="button" onClick={onCancel} className="editButton2">
         Nazad!
       </button>
     </div>

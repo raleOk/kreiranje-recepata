@@ -3,6 +3,7 @@ import RecipesList from "./RecipesList/RecipesList";
 import EditRecipe from "./EditRecipe/EditRecipe";
 import useFetch from "../../../hooks/useFetch";
 import { fetchConfig, urls } from "../../../fetchConfig/fetchConfig";
+import "./Recipes.css";
 
 const Recipes = () => {
   const [showForm, setShowForm] = useState(false);
@@ -73,7 +74,7 @@ const Recipes = () => {
           formType={formType}
         />
       ) : (
-        <button type="button" onClick={formTypeNew}>
+        <button type="button" onClick={formTypeNew} className="recipesButton">
           Dodaj nov recept!
         </button>
       )}

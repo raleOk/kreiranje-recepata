@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./ChangePassword.css";
 
 const ChangePassword = props => {
   const [currPassword, setCurrPassword] = useState("");
@@ -33,15 +34,29 @@ const ChangePassword = props => {
   };
   return (
     <div>
-      <label htmlFor="currPassword">Unesi staru lozinku:</label>
-      <input type="text" id="currPassword" onChange={currPasswordHandler} />
-      <label htmlFor="newPassword">Unesi novu lozinku:</label>
-      <input type="text" id="newPassword" onChange={newPasswordHandler} />
+      <label htmlFor="currPassword" className="cpLabel">
+        Unesi staru lozinku:{" "}
+      </label>
+      <input
+        type="text"
+        id="currPassword"
+        onChange={currPasswordHandler}
+        className="cpInput"
+      />
+      <label htmlFor="newPassword" className="cpLabel">
+        Unesi novu lozinku:{" "}
+      </label>
+      <input
+        type="text"
+        id="newPassword"
+        onChange={newPasswordHandler}
+        className="cpInput"
+      />
 
-      <button type="button" onClick={onSubmit}>
+      <button type="button" onClick={onSubmit} className="chButton">
         Promeni lozinku
       </button>
-      <button type="button" onClick={toggle}>
+      <button type="button" onClick={toggle} className="chButton">
         Nazad
       </button>
       <div>{newPassword}</div>

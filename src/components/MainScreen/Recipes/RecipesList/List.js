@@ -11,9 +11,10 @@ const List = props => {
           title={recipe.title}
           description={recipe.description}
           edit={edit}
-          //   picture={recipe.picture}
-          //   steps={recipe.steps}
-          //   ingredients={recipe.ingredients}
+          //get the rest of the information about the recipe here, and pass as props
+          // picture={recipe.picture}
+          // steps={recipe.steps}
+          // ingredients={recipe.ingredients}
         />
       ))}
     </div>

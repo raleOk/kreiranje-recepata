@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { fetchConfig, urls } from "../../../fetchConfig/fetchConfig";
 import useFetch from "../../../hooks/useFetch";
+import "./Register.css";
 
 const Register = props => {
   const [userInputs, setUserInputs] = useState({});
@@ -35,46 +36,58 @@ const Register = props => {
   };
   return (
     <div>
-      <form>
-        <label htmlFor="name">Ime:</label>
+      <form className="regForm">
+        <label htmlFor="name" className="regLabel">
+          Ime:
+        </label>
         <input
           id="name"
           type="text"
           onChange={userInputsHandler}
           name="firstName"
+          className="regInput"
           required
         />
 
-        <label htmlFor="surname">Prezime:</label>
+        <label htmlFor="surname" className="regLabel">
+          Prezime:
+        </label>
         <input
           id="surname"
           type="text"
           onChange={userInputsHandler}
           name="lastName"
+          className="regInput"
           required
         />
 
-        <label htmlFor="mail">E-mail:</label>
+        <label htmlFor="mail" className="regLabel">
+          E-mail:
+        </label>
         <input
           id="mail"
           type="email"
           onChange={userInputsHandler}
           name="email"
+          className="regInput"
           required
         />
 
-        <label htmlFor="pw">Lozinka:</label>
+        <label htmlFor="pw" className="regLabel">
+          Lozinka:
+        </label>
         <input
           id="pw"
           type="password"
           onChange={userInputsHandler}
           name="password"
+          className="regInput"
           required
         />
+        <button type="button" onClick={onSubmit} className="regButton">
+          Registruj se!
+        </button>
       </form>
-      <button type="button" onClick={onSubmit}>
-        Registruj se!
-      </button>
     </div>
   );
 };

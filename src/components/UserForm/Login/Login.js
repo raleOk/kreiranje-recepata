@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { urls } from "../../../fetchConfig/fetchConfig";
 import useFetch from "../../../hooks/useFetch";
+import "./Login.css";
 
 const Login = props => {
   const [userData, setUserData] = useState({});
@@ -49,25 +50,33 @@ const Login = props => {
 
   return (
     <div>
-      <form>
-        <label htmlFor="mail">E-mail:</label>
+      <form className="logForm">
+        <label htmlFor="mail" className="logLabel">
+          E-mail:
+        </label>
         <input
           type="email"
           id="mail"
           name="email"
           onChange={userDataHandler}
+          className="logInput"
           required
         />
-        <label htmlFor="pw">Lozinka:</label>
+        <label htmlFor="pw" className="logLabel">
+          Lozinka:
+        </label>
         <input
           type="password"
           id="pw"
           name="password"
           onChange={userDataHandler}
+          className="logInput"
           required
         />
+        <button onClick={onSubmit} className="logButton">
+          Uloguj se!
+        </button>
       </form>
-      <button onClick={onSubmit}>Uloguj se!</button>
     </div>
   );
 };

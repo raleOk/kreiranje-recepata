@@ -1,0 +1,18 @@
+.recipeContainer {
+  margin: 1rem auto;
+  background: #65a570;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 10px;
+  width: 30%;
+}
+.recipeInfo {
+  display: block;
+  padding: 3px;
+  border-radius: 4px;
+  margin: 6px;
+  font-size: x-large;
+  color: rgb(17, 16, 16);
+}
+.recipeButton {
+  margin: 5px;
+}

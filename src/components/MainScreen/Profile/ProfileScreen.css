@@ -1,0 +1,17 @@
+.profileScreen {
+  margin: 1rem auto;
+  background: #65a570;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 10px;
+  width: 30%;
+}
+.profileInfo {
+  display: block;
+  padding: 3px;
+  border-radius: 4px;
+  margin: 6px;
+  font-size: x-large;
+}
+.profileButton {
+  margin: 5px;
+}
