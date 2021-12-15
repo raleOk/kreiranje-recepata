@@ -2,8 +2,9 @@ import randomToken from "random-token";
 
 const token = randomToken(40);
 
+const urls = ["http://localhost:8000/users", "http://localhost:8080/recipes"];
+
 const fetchConfig = {
-  url: "http://localhost:8000/users",
   method: "POST",
   headers: {
     Accept: "application/json",
@@ -13,4 +14,4 @@ const fetchConfig = {
   body: null,
 };
 
-export default fetchConfig;
+export { fetchConfig, urls };

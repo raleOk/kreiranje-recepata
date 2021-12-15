@@ -1,9 +1,9 @@
 import { useCallback } from "react";
 
 const useFetch = () => {
-  const sendRequest = useCallback(async (fetchConfig, applyData) => {
+  const sendRequest = useCallback(async (url, fetchConfig, applyData) => {
     try {
-      const response = await fetch(fetchConfig.url, {
+      const response = await fetch(url, {
         method: fetchConfig.method ? fetchConfig.method : "GET",
         headers: fetchConfig.headers ? fetchConfig.headers : {},
         body: fetchConfig.body
