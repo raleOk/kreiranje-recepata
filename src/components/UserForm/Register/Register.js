@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import fetchConfig from "../../../fetchConfig/fetchConfig";
+import { fetchConfig, urls } from "../../../fetchConfig/fetchConfig";
 import useFetch from "../../../hooks/useFetch";
 
 const Register = props => {
   const [userInputs, setUserInputs] = useState({});
+
+  const { logIn, passData } = props;
 
   const { sendRequest } = useFetch();
 
@@ -28,13 +30,13 @@ const Register = props => {
       return;
     }
     fetchConfig.body = userInputs;
-    sendRequest(fetchConfig, props.passData);
-    props.logIn();
+    sendRequest(urls[0], fetchConfig, passData);
+    logIn();
   };
   return (
     <div>
       <form>
-        <label htmlFor="name">Ime</label>
+        <label htmlFor="name">Ime:</label>
         <input
           id="name"
           type="text"
@@ -43,7 +45,7 @@ const Register = props => {
           required
         />
 
-        <label htmlFor="surname">Prezime</label>
+        <label htmlFor="surname">Prezime:</label>
         <input
           id="surname"
           type="text"
@@ -52,7 +54,7 @@ const Register = props => {
           required
         />
 
-        <label htmlFor="mail">E-mail</label>
+        <label htmlFor="mail">E-mail:</label>
         <input
           id="mail"
           type="email"
@@ -61,7 +63,7 @@ const Register = props => {
           required
         />
 
-        <label htmlFor="pw">Lozinka</label>
+        <label htmlFor="pw">Lozinka:</label>
         <input
           id="pw"
           type="password"

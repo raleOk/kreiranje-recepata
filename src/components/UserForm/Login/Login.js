@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
-import fetchConfig from "../../../fetchConfig/fetchConfig";
+import { urls } from "../../../fetchConfig/fetchConfig";
 import useFetch from "../../../hooks/useFetch";
 
 const Login = props => {
   const [userData, setUserData] = useState({});
   const [jsonData, setJsonData] = useState([]);
+
+  const { logIn, passData } = props;
 
   const { sendRequest } = useFetch();
 
@@ -19,7 +21,7 @@ const Login = props => {
       setJsonData(userObj);
     };
 
-    sendRequest({ url: fetchConfig.url }, jsonDataHandler);
+    sendRequest(urls[0], false, jsonDataHandler);
   }, [sendRequest]);
 
   const foundUser = jsonData.find(u => {
@@ -41,14 +43,14 @@ const Login = props => {
       alert("Incorrect email.");
       return;
     }
-    props.logIn();
-    props.passData(foundUser);
+    logIn();
+    passData(foundUser);
   };
 
   return (
     <div>
       <form>
-        <label htmlFor="mail">E-mail</label>
+        <label htmlFor="mail">E-mail:</label>
         <input
           type="email"
           id="mail"
@@ -56,7 +58,7 @@ const Login = props => {
           onChange={userDataHandler}
           required
         />
-        <label htmlFor="pw">Password</label>
+        <label htmlFor="pw">Lozinka:</label>
         <input
           type="password"
           id="pw"

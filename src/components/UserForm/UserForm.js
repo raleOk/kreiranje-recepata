@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Register from "./Register/Register";
 import Login from "./Login/Login";
-import "./UserForm.css";
 
 const UserForm = props => {
   const [toggleForm, setToggleForm] = useState(true);
