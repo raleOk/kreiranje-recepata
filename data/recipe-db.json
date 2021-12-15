@@ -1,0 +1,68 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "userId": null,
+      "title": "Pizza",
+      "description": "Sunt porro qui est et. Expedita totam vero qui quidem itaque.",
+      "picture": "picture_name.png",
+      "steps": [
+        {
+          "description": "Autem omnis porro sunt voluptate ipsam. Saepe quaerat at aut."
+        },
+        {
+          "description": "Et voluptate et qui minus. Laborum omnis voluptas omnis qui asperiores quidem."
+        }
+      ],
+      "ingredients": [
+        {
+          "name": "flour",
+          "amount": 150,
+          "unit": "gram"
+        },
+        {
+          "name": "banana",
+          "amount": 3,
+          "unit": "piece"
+        },
+        {
+          "name": "milk",
+          "amount": 1,
+          "unit": "litre"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "userId": null,
+      "title": "Hamburger",
+      "description": "Sunt porro qui est et. Expedita totam vero qui quidem itaque.",
+      "picture": "picture_name.png",
+      "steps": [
+        {
+          "description": "Autem omnis porro sunt voluptate ipsam. Saepe quaerat at aut."
+        },
+        {
+          "description": "Et voluptate et qui minus. Laborum omnis voluptas omnis qui asperiores quidem."
+        }
+      ],
+      "ingredients": [
+        {
+          "name": "flour",
+          "amount": 100,
+          "unit": "gram"
+        },
+        {
+          "name": "banana",
+          "amount": 2,
+          "unit": "piece"
+        },
+        {
+          "name": "milk",
+          "amount": 0.5,
+          "unit": "litre"
+        }
+      ]
+    }
+  ]
+}
