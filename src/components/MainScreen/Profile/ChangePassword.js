@@ -15,7 +15,6 @@ const ChangePassword = props => {
   };
 
   const onSubmit = () => {
-    console.log("user", userPassword);
     if (currPassword === "" || newPassword === "") {
       alert("Enter passwords please.");
       return;
@@ -28,21 +27,24 @@ const ChangePassword = props => {
       alert("Password must be longer.");
       return;
     }
-    //change password in database and return to the profile screen by toggle()
+
+    //this should be a function that sends the newPassword to the database, and changes it, I am instead printing it to the screen
+    console.log(newPassword);
   };
   return (
     <div>
-      <label htmlFor="currPassword">Enter current password</label>
+      <label htmlFor="currPassword">Unesi staru lozinku:</label>
       <input type="text" id="currPassword" onChange={currPasswordHandler} />
-      <label htmlFor="newPassword">Enter new password</label>
+      <label htmlFor="newPassword">Unesi novu lozinku:</label>
       <input type="text" id="newPassword" onChange={newPasswordHandler} />
 
       <button type="button" onClick={onSubmit}>
-        Change!
+        Promeni lozinku
       </button>
       <button type="button" onClick={toggle}>
-        Cancel!
+        Nazad
       </button>
+      <div>{newPassword}</div>
     </div>
   );
 };

@@ -8,10 +8,10 @@ const ProfileScreen = props => {
       <h3>Username: {userData.firstName}</h3>
       <h3>E-mail: {userData.email}</h3>
       <button type="button" onClick={toggle}>
-        Change password?
+        Promeni lozinku?
       </button>
       <button type="button" onClick={logout}>
-        Logout
+        Odjavi se.
       </button>
     </div>
   );
