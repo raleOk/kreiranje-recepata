@@ -1,6 +1,10 @@
 Programerski zadatak.
 Od dependencies pored react koristim json-server i random-token.
 Oba su u package.json file-u, i instalirace se preko npm install.
+Takodje uneti komande:
+json-server --watch db.json --port 3000
+json-server --watch db.recipe-db.json --port 8080
+Da bi server znao da prati i salje pozive bazi.
 
 Aplikacija koristi json-server library na kom se nalaze 2 baze podataka, na jednoj su korisnici a na drugoj su recepti.
 Kada se registruje nov korisnik, automacki se doda u bazu podataka, i login proverava da li korisnik koji pokusava da se uloguje u njoj postoji.
